@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'GGPod_Example' do
+  pod 'GGPod', :path => '../'
+
+  target 'GGPod_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
