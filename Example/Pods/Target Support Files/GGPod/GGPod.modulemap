@@ -1,0 +1,6 @@
+framework module GGPod {
+  umbrella header "GGPod-umbrella.h"
+
+  export *
+  module * { export * }
+}

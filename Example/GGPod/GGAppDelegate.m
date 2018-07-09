@@ -8,12 +8,20 @@
 
 #import "GGAppDelegate.h"
 
+#import "GG_PlugIn.h"
+
 @implementation GGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [[GG_PlugIn shareInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [[GG_PlugIn shareInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation] ;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

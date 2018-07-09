@@ -18,7 +18,8 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Simple GG plugin for personal use
+
                        DESC
 
   s.homepage         = 'https://github.com/tthufo@gmail.com/GGPod'
@@ -28,15 +29,22 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/tthufo@gmail.com/GGPod.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
-  s.source_files = 'GGPod/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'GGPod' => ['GGPod/Assets/*.png']
-  # }
+s.source_files = 'GGPod/Classes'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+s.public_header_files = 'GGPod/Classes/*.h'
+
+s.static_framework = true
+
+s.dependency 'GoogleSignIn', '~> 4.1'
+
+s.dependency 'SVProgressHUD'
+
+s.pod_target_xcconfig = {
+    "OTHER_LDFLAGS" => '$(inherited) -framework "GoogleSignIn"',
+    "CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES" => 'YES',
+    "FRAMEWORK_SEARCH_PATHS" => '$(inherited) "${PODS_ROOT}/GoogleSignIn/Frameworks"'
+}
+
 end

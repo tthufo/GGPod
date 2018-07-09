@@ -8,6 +8,8 @@
 
 #import "GGViewController.h"
 
+#import "GG_PlugIn.h"
+
 @interface GGViewController ()
 
 @end
@@ -17,7 +19,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    [[GG_PlugIn shareInstance] startLogGoogleWithCompletion:^(NSString *responseString, id object, int errorCode, NSString *description, NSError *error) {
+        
+        if(!object)
+        {
+            return ;
+        }
+        
+        NSLog(@"%@", object);
+        
+    } andHost:self];
 }
 
 - (void)didReceiveMemoryWarning
