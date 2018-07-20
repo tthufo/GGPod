@@ -32,6 +32,8 @@ static GG_PlugIn * shareGoogle = nil;
 {
     if(host_)
     {
+        [self showLoading];
+
         host = host_;
     }
     
