@@ -12,7 +12,7 @@
 
 typedef void (^GGCompletion)(NSString * responseString, id object, int errorCode, NSString *description, NSError * error);
 
-@interface GG_PlugIn : NSObject<GIDSignInDelegate, GIDSignInUIDelegate>
+@interface GG_PlugIn : NSObject<GIDSignInDelegate>
 
 + (GG_PlugIn*)shareInstance;
 

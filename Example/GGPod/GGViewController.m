@@ -19,7 +19,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+
+}
+
+- (IBAction)didPress:(id)sender {
     [[GG_PlugIn shareInstance] startLogGoogleWithCompletion:^(NSString *responseString, id object, int errorCode, NSString *description, NSError *error) {
         
         if(!object)

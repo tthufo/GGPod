@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'GGPod'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of GGPod.'
 
 # This description is used to generate tags and improve search results.
@@ -37,7 +37,7 @@ s.public_header_files = 'GGPod/Classes/*.h'
 
 s.static_framework = true
 
-s.dependency 'GoogleSignIn', '~> 4.1'
+s.dependency 'GoogleSignIn', '~> 5.0'
 
 s.dependency 'SVProgressHUD'
 

@@ -32,7 +32,7 @@ static GG_PlugIn * shareGoogle = nil;
 {
     if(host_)
     {
-        [self showLoading];
+//        [self showLoading];
 
         host = host_;
     }
@@ -41,8 +41,8 @@ static GG_PlugIn * shareGoogle = nil;
     
     [GIDSignIn sharedInstance].delegate = self;
     
-    [GIDSignIn sharedInstance].uiDelegate = self;
-    
+    [GIDSignIn sharedInstance].presentingViewController = host;
+
     [GIDSignIn sharedInstance].shouldFetchBasicProfile = YES;
     
     [[GIDSignIn sharedInstance] signIn];
@@ -134,7 +134,7 @@ static GG_PlugIn * shareGoogle = nil;
         completionBlock(nil, nil, -1, error.localizedDescription, error);
     }
     
-    [SVProgressHUD dismiss];
+//    [SVProgressHUD dismiss];
 }
 
 - (void)signIn:(GIDSignIn *)signIn didDisconnectWithUser:(GIDGoogleUser *)user withError:(NSError *)error
@@ -161,9 +161,9 @@ static GG_PlugIn * shareGoogle = nil;
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    [self showLoading];
+//    [self showLoading];
     
-    return [[GIDSignIn sharedInstance] handleURL:url sourceApplication:sourceApplication annotation:annotation];
+    return [[GIDSignIn sharedInstance] handleURL:url];// sourceApplication:sourceApplication annotation:annotation];
 }
 
 - (void)showLoading
